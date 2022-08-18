@@ -21,7 +21,7 @@ let pessoa = {
     nome: 'Felicity Faria Fernandes',
     sexo: 'F',
     dataNasc: '20100-04-29',
-    email: 'felicity@meta.com'
+    email: 'felicity@metaverso.com'
 
 }
 //  Na desestruturação de objetos, as variáveis avulsas:
