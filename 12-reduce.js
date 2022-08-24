@@ -4,6 +4,6 @@ let nomes = ['Aderbal', 'Joeliton', 'Neurivânia', 'Terebintina', 'Leucimara']
 //reduce() ára somar todos os elementos do vetor nums
 let soma = nums.reduce((elemento, acumulator) => acumulator + elemento)
 
-let listaNomes = nomes.reduce((el, acum) => acum.toUpperCase() + ', ' + el.toUpperCase())
+let listaNomes = nomes.reduce((el, acum) => el.toUpperCase() + ', ' + acum.toUpperCase())
 
 console.log({soma, listaNomes})
