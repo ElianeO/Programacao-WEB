@@ -73,5 +73,5 @@ function calcular(oper, ...nums) {
     return res
 }
 
-console.log('Soma dos números de 1 a 5:', calcular('+', 1, 2, 3, 4, 5))
-console.log('Produto dos números de 1 a 5:', calcular('*', 1, 2 , 3, 4, 5))
+console.log('Soma dos números de 1 a 6:', calcular('+', 1, 2, 3, 4, 5,6))
+console.log('Produto dos números de 1 a 5:', calcular('*', 1, 2 , 3, 4, 5,6))
