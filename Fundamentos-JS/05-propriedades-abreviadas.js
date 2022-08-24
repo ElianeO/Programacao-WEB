@@ -33,5 +33,3 @@ console.log(x,y)
 // variáveis provêm os valores
 console.log({x,y})
 
-
-
