@@ -8,4 +8,3 @@ let comecaComM = frutas.find(f => f.charAt(0) === 'm')
 let comecaComB = frutas.find(f => f.charAt(0) === 'b')
 
 console.log({primeiroNegativo, primeiroDIv5, comecaComM})
-
