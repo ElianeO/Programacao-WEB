@@ -47,3 +47,4 @@ const fatorialA = n => {
     return fat
 }
 console.log(fatorialA(5))
+
