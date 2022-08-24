@@ -48,4 +48,3 @@ const fatorialA = n => {
 }
 console.log(fatorialA(5))
 
-
