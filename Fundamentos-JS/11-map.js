@@ -12,3 +12,4 @@ let itensLista = nomes.map(n => `<li>${n}</li>`)
 
 console.log({dobro})
 console.log({itensLista})
+
