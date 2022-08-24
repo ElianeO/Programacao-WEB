@@ -32,3 +32,5 @@ console.log(x,y)
 // Saáida melhorada: passando um objeto com propriedades abreviadas para o console.log(), como uma forma de sabermos de quais 
 // variáveis provêm os valores
 console.log({x,y})
+
+
