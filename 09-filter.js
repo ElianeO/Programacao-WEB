@@ -13,3 +13,4 @@ let comecaComJ = frutas.filter(x => x.charAt(0) === 'j')
 let comecaComB = frutas.filter(f => f.charAt(0) === 'b')    // vetor vazio []
 
 console.log({negativos, divs5, comecaComM, comecaComJ, comecaComB})
+

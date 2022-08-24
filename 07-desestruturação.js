@@ -33,3 +33,4 @@ let pessoa = {
 
  console.log({nome,sexo,email})
  
+ 
