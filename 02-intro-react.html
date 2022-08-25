@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <div id="root"> </div>
+    <script> 
+        // No react, os atributos de um elemento HTML são chamados PROPS e são definidos por meio 
+        // de um objeto javascript
+        const props = {
+            id: 'div-react',
+            children: 'DIV criada com react',
+            style: { border: '2px solid blue', backgroundColor: 'pink'}
+        }
+        // Usando react para criar o elemnto usando as props anteriormente definidas
+        const novaDiv = React.createElement('div', props)
+
+        // Adicionando o elemento criado dentro da div vujo id é root
+        // ReactDOM.render(novaDiv, document.getElementById('root'))
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(novaDiv)
+
+        // const botao = React.createElement('button',{
+        //     id: 'NovoBtn',
+        //     style: {color: 'red', backgroundColor: 'yellow', font: 'times-new-roman'},
+        //     children: 'Clique aqui',
+        //     onClick: () => alert('Olá!')
+        // })
+            
+        // A prop "children" pode ser passada entre as demais props, no segundo parametro, 
+        // ou vir separada no terceiro parametro
+        const botao = React.createElement('button',{
+            id: 'NovoBtn',
+            style: {color: 'red', backgroundColor: 'yellow'},
+            children: 'Clique aqui',
+            onClick: () => alert('Olá!')
+        }, 'Clique aqui')
+
+        // Criando um elemento de forma rápida apenas com o "children"
+        const parag = React.createElement('p', null, 'Isto é um parágrafo')
+
+        // Criando um div de container para conter os  os demais elementos que criamos. No "children" desse container,
+        // passamos um vetor com os outros elementos que devem ser renderizados dentro dele
+        const container = React.createElement('div', {id: 'container'}, [
+            novaDiv,
+            botao,
+            parag])
+        // createRoot() e render() são usados apenas uma vez
+        root.render(container)
+
+        // A prop "children" pode ser passada entre as demais props, no segundo parametro, 
+        // ou vir separada no terceiro parametro
+
+    </script>
+</body>
+</html> 
