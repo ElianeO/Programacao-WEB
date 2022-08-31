@@ -37,13 +37,20 @@
             children: 'DIV criada com React "cru"'
         })
 
-        // Div1, criada com JSX e processada pelo Babel
+        // Div2, criada com JSX e processada pelo Babel
         const div2 = <div className="formata">Div criada com JSX+Babel</div>
+
+        const className = 'formata'
+        let children = 'div criada com JSX-Babel usando variáveis interpoladas'
+
+        // Para exibir o conteúdo de variáveis dentro do JSX, as colocamos entre {}
+        const div3 = <div className={className}>{children}</div>
 
         // container também criado com React "cru"
         const container = React.createElement('div', { id: "container"}, [
             div1,
-            div2
+            div2,
+            div3
         ])
 
         const root = ReactDOM.createRoot(document.getElementById('root'))
