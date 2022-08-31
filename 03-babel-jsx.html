@@ -48,11 +48,21 @@
 
         children = 'Div criada com JSX-Babel usando espalhamento de props'
 
+        // Formando um objeto de props usando propriedades abreviadas
+        const props = {className, children}
+        console.log({props})
+
+        // Quando as props de um elemento estão dentro de um objeto cujas propriedades tem o mesmo nome das props,
+        // pode-se usar a síntaxe de espalhamento para criar o elemento
+        let div4 = <div {...props} />
+        // Em JSX, pode-se usar /> no final da tag, no lugar da tag de fechamento </elemento>
+
         // container também criado com React "cru"
         const container = React.createElement('div', { id: "container"}, [
             div1,
             div2,
-            div3
+            div3,
+            div4
         ])
 
         const root = ReactDOM.createRoot(document.getElementById('root'))
