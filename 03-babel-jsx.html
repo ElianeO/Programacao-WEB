@@ -41,10 +41,12 @@
         const div2 = <div className="formata">Div criada com JSX+Babel</div>
 
         const className = 'formata'
-        let children = 'div criada com JSX-Babel usando variáveis interpoladas'
+        let children = 'Div criada com JSX-Babel usando variáveis interpoladas'
 
         // Para exibir o conteúdo de variáveis dentro do JSX, as colocamos entre {}
         const div3 = <div className={className}>{children}</div>
+
+        children = 'Div criada com JSX-Babel usando espalhamento de props'
 
         // container também criado com React "cru"
         const container = React.createElement('div', { id: "container"}, [
