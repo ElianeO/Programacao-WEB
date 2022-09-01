@@ -37,12 +37,33 @@
         const Soma = ({n1, n2,...props} ) =>
             <div className = "soma" {...props} > {n1 + n2} </div>
         
+        // Componente que recebe qualquer prop
+        const ParagCentro = props =>
+            <p className="centro" {...props} />
+        
+
+        const ParagDireita = ({id, children}) =>
+            <p className="direita" id={id}> {children} </p>
+
         const container = 
         <>
-            <Soma n1="40" n2="25" />
+            <Soma id="soma1" n1="40" n2="25" />
+
+            {/* Ao passar props que NÃO SÃO STRING, deve-se usar {} */}
+            <Soma id="soma2" n1={40} n2={25} />
+
+            {/* ParagCentro ir´-a processar qualquer prop que for passada a ele*/}
+            <ParagCentro id="centro1" tittle="Centralizado" seila="numset">
+                Centralizado
+                </ParagCentro>
+            {/* ParagDireita irá processae apenas as props id e children ignorando as demais */}
+            <ParagDireita id="direita1" tittle="À direita" seila="numset">
+                À direita
+                </ParagDireita>
+                
             </>
             
-        const root = React.DOM.createRoot(document.getElementById('root'))
+        const root = ReactDOM.createRoot(document.getElementById('root'))
         root.render(container)
     </script>
     
