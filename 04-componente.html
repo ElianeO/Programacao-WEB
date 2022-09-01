@@ -6,37 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .msg {
-            border-radius: 4px;
-            border: 2px solid red;
-            background-color: khaki;
-            padding: 10px;
-            text-align: center;
-            font-family: Calibri, Arial, sans-serif;
-            margin-bottom: 10px;
+        .soma{
+            border-radius: 5px;
+            border: 3px solid black;
+            padding: 5px;
+            margin: 5px;
         }
-        .greet {
-            background-color: indigo;
-            border-radius: 8px;
-            color: white;
-            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
-            padding: 12px;
-            text-align: center;
-            font-family: Cambria, 'Times New Roman', serif;
-            margin-bottom: 10px;
+        .direita{
+            text-align: right;
+            background-color: lightblue;
         }
-        .warning-title {
-            color: white;
-            background-color: red;
+        .centro{
             text-align: center;
-        }
-        .warning-body {
-            color: black;
-            background-color: yellow;
-            text-align: center;
-        }
-        .warning-body p {
-            margin: 0;
+            background-color: lightgreen;
         }
     </style>
 </head>
@@ -48,50 +30,20 @@
     <div id="root"></div>
 
     <script type="text/babel">
-         
-        // Função que recebe duas props e retorna um elemento JSX
-        // Props são SEMPRE recebidas como um OBJETO (entre chaves)
+        // Componente que recebe dois números e exibe a soma deles. 
+        // Ele possui duas props personalizadas (n1 e n2) e mais as props padrao, que são recebidas 
+        // como argumentos de resto
 
-        // function Greeting({msg, name}) {
-        //     return <div className="msg"> {msg}, {name}! </div>
-        // }
-
-        // A mesma função acima, no formato arrow function
-        const Greeting = ({msg, name}) => <div className="greet"> {msg}, {name}! </div>
-
-        const greet1 = Greeting({name: 'Seu Bita', msg: 'Bom dia'})
-
-        // Função que recebe apenas um objeto prop e as renderiza usando espalhamento
-        const Message = props => <div className="msg" {...props} />
-
-        const Warning = ({title = 'AVISO', ...props}) =>
-            <>
-                <header className="warning-title">{title}</header>
-                <section className="warning-body">
-                    <p {...props} />
-                </section>
-            </>
-
-        const container =
-            <> {/* Fragment (pseudoelemento agrupador - não gera elemento HTML) */}
-                {/* Variável */}
-                {greet1} 
-                
-                {/* Chamando a função diretamente */}
-                {Greeting({msg: 'Boa noite', name: 'Cinderela'})}
-                
-                {/* Usando a sintaxe JSX */}
-                <Greeting msg="Boa tarde" name="moçada" />
-
-                <Message seila="numsei" id="msg1" title="Mensagem" children="Isto é uma mensagem" />
-                <Message seila="numsei" id="msg2" title="Mensagem">Isto é uma mensagem</Message>
-
-                <Warning id="feriado" title="7 DE SETEMBRO">Tem feriado semana que vem.</Warning>
-            </>
-
-        const root = ReactDOM.createRoot(document.getElementById('root'))
-        root.render(container)
+        const Soma = ({n1, n2,...props} ) =>
+            <div className = "soma" {...props} > {n1} + {n2} </div>
         
+        const container = 
+        <>
+            <Soma n1="40" n2="25" />
+            </>
+            
+        const root = React.DOM.createRoot(document.getElementById('root'))
+        root.render(container)
     </script>
     
 </body>
