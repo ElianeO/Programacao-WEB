@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link, ref="stylesheet" href="06.css">
+</head>
+<body>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+         
+        // Função que recebe duas props e retorna um elemento JSX
+        // Props são SEMPRE recebidas como um OBJETO (entre chaves)
+
+        // function Greeting({msg, name}) {
+        //     return <div className="msg"> {msg}, {name}! </div>
+        // }
+
+        // A mesma função acima, no formato arrow function
+        const Greeting = ({msg, name}) => <div className="greet"> {msg}, {name}! </div>
+
+        const greet1 = Greeting({name: 'Seu Bita', msg: 'Bom dia'})
+
+        // Função que recebe apenas um objeto prop e as renderiza usando espalhamento
+        const Message = props => <div className="msg" {...props} />
+
+        const Warning = ({title = 'AVISO', ...props}) =>
+            <>
+                <header className="warning-title">{title}</header>
+                <section className="warning-body">
+                    <p {...props} />
+                </section>
+            </>
+
+        const container =
+            <> {/* Fragment (pseudoelemento agrupador - não gera elemento HTML) */}
+                {/* Variável */}
+                {greet1} 
+                
+                {/* Chamando a função diretamente */}
+                {Greeting({msg: 'Boa noite', name: 'Cinderela'})}
+                
+                {/* Usando a sintaxe JSX */}
+                <Greeting msg="Boa tarde" name="moçada" />
+
+                <Message seila="numsei" id="msg1" title="Mensagem" children="Isto é uma mensagem" />
+                <Message seila="numsei" id="msg2" title="Mensagem">Isto é uma mensagem</Message>
+
+                <Warning id="feriado" title="7 DE SETEMBRO">Tem feriado semana que vem.</Warning>
+            </>
+
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(container)
+        
+    </script>
+    
+</body>
+</html>
