@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROVA 1 &bull; Programação Web 2022/2</title>
+    <style>
+        * {
+            font-family: Calibri, Arial, sans-serif;
+        }
+        body {
+            background: maroon;
+            background: linear-gradient(0deg, maroon 0%, coral 100%);
+            height: 100vh;
+        }
+        main {
+            margin: 5%;
+            background-color: white;
+            padding: 25px;
+            border-radius: 25px;
+            box-shadow: 5px 5px rgba(250, 250, 250, 0.2);
+        }
+        h1 {
+            color: maroon;
+            text-shadow: 2px 2px rgba(0, 100, 0, 0.2);
+            text-align: center;
+        }
+        label span {
+            display: block;
+        }
+        .input-set, .result {
+            margin: 15px auto;
+            padding: 10px;
+            width: 50%;
+            text-align: center;
+        }
+        .input-set label {
+            display: block;
+            color: maroon
+        }
+        .result {
+            background-color: maroon;
+            color: white;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        function Page() {
+
+            /*
+                1. Declare quatro variável de estado:
+                   - uma para armazenar o valor do input "peso" (número)
+                   - uma para armazenar o valor do input "altura" (número)
+                   - uma para armazenar o cálculo do IMC (número)
+                   - uma para armazenar a faixa do IMC (string)
+                  */
+                  
+
+                /*2. Declare uma única função para manipular os eventos onChange de ambos
+                   os inputs. Dentro dessa função:
+                   - atualize o valor das variáveis de estado peso e altura com
+                     o valor dos respectivos inputs
+                   - efetue o cálculo do IMC (peso dividido pela altura elevada
+                     ao quadrado) e armazene o resultado na variável de estado correspondente. */
+                
+                  
+                /* 3. Ainda dentro da função, determine a faixa do IMC a partir do resultado
+                   do cálculo obtido e armazene a descrição da faixa na variável de estado
+                   correspondente:
+                    - Menor que 18,5 -> Peso baixo
+                    - Entre 18,5 e 24,9 -> Peso normal
+                    - Entre 25 e 29,9 -> Sobrepeso
+                    - Entre 30 e 34,9 -> Obesidade (Grau I)
+                    - Entre 35 e 39,9 -> Obesidade Severa (Grau II)
+                    - Maior ou igual a 40 -> Obesidade Mórbida (Grau III) */
+                    
+                  
+                
+              /*  4. Nos inputs, atribua as variáveis de estado de peso e altura ao 
+                   atributo "value", tornando-os assim componentes controlados.
+
+                5. Exiba as variáveis de estado nos locais apropriados.
+
+                6. Comente os principais trechos do seu código.
+
+                Após terminar, coloque sua prova em um arquivo ZIP e anexe no Teams.
+
+                ATENÇÃO: A PROVAS COM ALTO GRAU DE SEMELHANÇA OU INDÍCIOS DE PLÁGIO
+                         SERÁ ATRIBUÍDA A NOTA *ZERO*.
+
+                O horário limite é 9h20.
+
+                Boa prova!
+            */
+
+            //Declarando as variáveis de estado
+            const [peso, setPeso] = React.useState(0) 
+            const [altura, setAltura] = React.useState(0) 
+            const [IMC, setIMC] = React.useState(0)
+            const [faixaIMC, setFaixa] = React.useState('')
+
+            // Criando uma função para manipular os eventos onChange de ambos os inputs
+            function handleChange(event){
+                    // Atualizando os valores das variáveis "peso" e "altura"
+                    if(event.target.name === 'peso') {
+                        setPeso(Number(event.target.value))
+                    } 
+
+                    else{
+                        setAltura(Number(event.target.value))
+                    }
+                    // Tornando as variáveis "peso" e "altura" componentes controlados e cauculando o IMC
+                    return (
+                         <form>
+                            <label>
+                                <span>Peso:</span>
+                                <input 
+                                    type="number"
+                                    name="peso"
+                                    value={peso}
+                                    onChange={handleChange} 
+                                    />
+                            </label>
+                            <br />
+                            <label>
+                                <span>Altura:</span>
+                                <input 
+                                    type="number"
+                                    name="altura"
+                                    value={altura}                                        
+                                    onChange={handleChange}
+                                    />
+                             </label>
+                            <div>
+                                <span>IMC: </span> 
+                                <span>{Math.pow((peso/altura),2)}</span> 
+                            </div>
+                        </form>
+                        )
+                        //Descrevendo a faixa de acordo com o IMC e armazenando em uma variável de estado
+                        if(event.target.name === 'IMC') {
+                            setFaixa(Number(event.target.value))
+
+                            if (setFaixa < 18,5){
+                                faixaIMC = 'Peso Baixo'
+                            }
+                            else if (setFaixa >= 18,5 && setFaixa <=24,9){
+                                faixaIMC = 'Peso normal'
+                            }
+                            else if (setFaixa >= 25 && setFaixa <=29,9){
+                                faixaIMC = 'Sobrepeso'
+                            }
+                            else if (setFaixa >= 30 && setFaixa <= 34,9){
+                                faixaIMC = 'Obesidade (Grau I)'
+                            }
+                            else if (setFaixa >= 35 && setFaixa <= 39,9){
+                                faixaIMC = 'Obesidade (Grau II)'
+                            }
+                            else if (setFaixa >= 40){
+                                faixaIMC = 'Obesidade Mórbida (Grau III)'
+                            }
+                        } 
+                        else{
+                            alert('Erro')
+                        }
+        }
+                    }
+
+            return (<main>
+                <h1>Cálculo do Índice de Massa Corporal (IMC)</h1>
+
+                <div id="container">
+                    <div className="input-set">
+                        <label>
+                            <span>Peso</span>
+                            <input name="peso" type="number" />
+                        </label>
+                    </div>
+
+                    <div className="input-set">
+                        <label>
+                            <span>Altura</span>
+                            <input name="altura" type="number" />
+                        </label>
+                    </div>
+
+                    <div className="result">
+                        <div>IMC: {IMC}</div>
+                        <div>Faixa: {faixaIMC}</div>
+                    </div>
+                </div>
+            </main>)
+        
+
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(<Page />)
+
+    </script>
+    
+</body>
+</html>
